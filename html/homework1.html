@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<script>
+
+
+
+    function factorial(number) {
+        if (number === 1) {
+            return number;
+        } else {
+            return number * factorial(number - 1);
+        }
+    }
+
+    function sumTo(n) {
+        let sum = 0;
+        for(let i = 1; i <= n; i++){
+            sum += i;
+        }
+        return sum;
+    }
+
+    function sumToByFactorial(n) {
+        if(n === 1){
+            return n;
+        } else {
+            return sumToByFactorial(n-1) + n;
+        }
+    }
+
+    alert(factorial(5));
+    alert(sumToByFactorial(100));
+    alert(sumTo(100));
+
+</script>
+
+</body>
+</html>
