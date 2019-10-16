@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+    var obj = {
+        className: 'block menu'
+    };
+
+    function addClass(obj, str) {
+        var obj2 = {};
+        if (!obj.className){
+            return "Such key doesn't exist";
+        }
+        var arr = obj.className.split(" ");
+        for (var i = 0; i < arr.length; i++) {
+            obj2[arr[i]] = true;
+        }
+        obj2[str] = true;
+        arr = Object.keys(obj2);
+        obj.className = arr.join(" ");
+    }
+
+    function deleteClass(obj, str){
+        var obj2 = {};
+        if (!obj.className){
+            return "Such key doesn't exist";
+        }
+        var arr = obj.className.split(" ");
+        for (var i = 0; i < arr.length; i++) {
+            obj2[arr[i]] = true;
+            if (arr[i] === str) {
+                delete obj2[str];
+            }
+        }
+        arr = Object.keys(obj2);
+        obj.className = arr.join(" ");
+    }
+
+    addClass(obj, 'new-block');
+    addClass(obj, 'block');
+    addClass(obj, 'blue');
+    addClass(obj, 'menu');
+    alert(obj.className);
+
+    deleteClass(obj, 'blue');
+    deleteClass(obj,'block');
+    deleteClass(obj, 'menu');
+
+    alert(obj.className);
+
+
+</script>
+
+</body>
+</html>
