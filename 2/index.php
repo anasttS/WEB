@@ -1,8 +1,10 @@
 <?php
 if (isset($_REQUEST['send'])) {
     $string = $_REQUEST['string'];
-    $str = changeSymbols($string);
-    print ($str);
+    $result = changeSymbols($string);
+    $str = $result[0];
+    $count = $result[1];
+    print ($str." ".$count." - количество замен");
 } else {
     include("form.html");
 }
@@ -32,14 +34,16 @@ function generator($string)
                 yield $string[$i];
         }
     }
-    print ($count." - количество замен"."<br />");
+    return $count;
 }
 
-function changeSymbols($string): string
+function changeSymbols($string)
 {
     $str = "";
-    foreach (generator($string) as $item) {
+    $generator = generator($string);
+    foreach ($generator as $item) {
         $str .= $item;
     }
-    return $str;
+    $count = $generator -> getReturn();
+    return [$str, $count];
 }
