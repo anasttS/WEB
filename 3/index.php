@@ -19,13 +19,11 @@ function sort_str($separate_strings)
     $sort_string = [];
     for ($i = 0; $i < count($separate_strings); $i++) {
         $separate_strings[$i] = explode(' ', $separate_strings[$i]);
+        array_push($sort_string, $separate_strings[$i]);
         shuffle($separate_strings[$i]);
         array_push($sort_string, $separate_strings[$i]);
     }
     usort($sort_string, function ($a, $b) {
-        if ($a[1] == $b[1]) {
-            return 0;
-        }
         if ($a[1] < $b[1]) return -1;
         else return 1;
     });
