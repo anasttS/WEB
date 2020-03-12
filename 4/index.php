@@ -39,7 +39,6 @@ function countSumWeight($separated_data)
     return $sum_weight;
 }
 
-
 function convertToJson($separated_data)
 {
     $weight = countSumWeight($separated_data)[0];
