@@ -29,13 +29,15 @@ if (isset($_REQUEST['execute'])) {
                 $proportion_of_received = 0;
                 foreach ($result_of_command as $value) {
                     if (!(stristr($value, '%') === FALSE)) {
-                        $pos_sent = strpos($value, '=');
-                        $sent = (int)$value[$pos_sent + 2];
-
-                        $pos_received = strpos($value, '=', 2);
-                        $received = (int)$value[$pos_received + 2];
-
-                        $proportion_of_received = (int)($received / $sent) * 100;
+                        $pos_lose = strpos($value, '%');
+                        $proportion_of_received = 100 - ((int) $value[$pos_lose - 1]);
+//                        $pos_sent = strpos($value, '=');
+//                        $sent = (int)$value[$pos_sent + 2];
+//
+//                        $pos_received = strpos($value, '=', 2);
+//                        $received = (int)$value[$pos_received + 2];
+//
+//                        $proportion_of_received = (int)($received / $sent) * 100;
                         break;
                     }
                 }
