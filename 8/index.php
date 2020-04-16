@@ -11,6 +11,7 @@ if (isset($_REQUEST["show"])) {
     }
     $year = $now_date->format('Y'); // год
     $calendar = createCalendar($month, $year);
+    print "<p><h4>".$month.".".$year."</h4></p>";
     print $calendar;
 } else {
     include "form.html";
