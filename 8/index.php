@@ -5,6 +5,7 @@ if (isset($_REQUEST["show"])) {
         $month = $_REQUEST["month"];
         if ($month > 12 || $month < 1) {
             print ("Количество месяцев 12!");
+            exit;
         }
     } else {
         $month = $now_date->format('n'); // месяц без ведущего нуля
