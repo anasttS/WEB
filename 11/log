@@ -1,8 +1,8 @@
 [
     {
-        "type": "log",
+        "type": "info",
         "time": {
-            "date": "2020-05-06 16:58:04.826928",
+            "date": "2020-05-21 10:16:18.669129",
             "timezone_type": 3,
             "timezone": "UTC"
         },
