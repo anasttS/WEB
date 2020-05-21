@@ -6,6 +6,20 @@ use ComplexExpression\ComplexExpression;
 
 class ComplexExpressionTest extends TestCase
 {
+
+    public function testToString()
+    {
+        $complex = new ComplexExpression(10, 2);
+        $this->assertEquals("(10,2)", $complex->__toString());
+    }
+
+    public function testDivZero()
+    {
+        $complex = new ComplexExpression(10, 2);
+        $this->assertEquals('You can\'t div 0', $complex->div(new ComplexExpression(0, 0)));
+    }
+
+
     public function testAddCorrect()
     {
         $complex = new ComplexExpression(10, 2);
